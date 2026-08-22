@@ -1,0 +1,3 @@
+data/tsplib95
+.venv/
+*/__pycache__/
