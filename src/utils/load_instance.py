@@ -29,15 +29,15 @@ def get_opt_fits(file):
 class Instance:
     def __init__(self, name):
         self.ROOT_DIR = Path(__file__).resolve().parents[2]
-        self.OPT_FITS_FILE = self.ROOT_DIR / "data" / "tsplib95" / "opt-fits.txt"
+        self.OPT_FITS_FILE = self.ROOT_DIR / "data" / "tsplib95" / "opt_fits.txt"
 
         self.name = name
-        self.instance_file = self.root_directory / "data" / "tsplib95" / f"{name}.tsp"
-        self.instance = tsplib95.load(self.instance_file)
+        self.file = self.ROOT_DIR / "data" / "tsplib95" / "instances" / f"{name}.tsp"
+        self.instance = tsplib95.load(self.file)
         self.type = self.instance.edge_weight_type
         nodes = self.instance.node_coords.values()
         self.nodes = np.array(list(nodes))
-        self.opt_fits = get_opt_fits(self.OPT_FITS_FILE).get(self.name)
+        self.opt_fit = get_opt_fits(self.OPT_FITS_FILE).get(self.name)
         self.n = self.nodes.shape[0]
 
     def get_nodes(self):
