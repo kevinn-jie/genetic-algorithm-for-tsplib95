@@ -3,5 +3,4 @@ from load_instance import Instance
 
 if __name__ == "__main__":
 	instance = Instance("berlin52")
-	result = genetic_algorithm(instance)
-	print(result)
+	genetic_algorithm(instance)

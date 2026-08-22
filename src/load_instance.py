@@ -2,6 +2,7 @@ import numpy as np
 import tsplib95
 from pathlib import Path
 
+
 def get_opt_fits(file):
     opt_fits = {}
 
@@ -25,6 +26,7 @@ def get_opt_fits(file):
             except ValueError:
                 continue
     return opt_fits
+
 
 class Instance:
     def __init__(self, name):

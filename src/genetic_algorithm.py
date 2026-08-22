@@ -168,6 +168,9 @@ def two_opt(n, tour, dist_matrix):
 
 
 def genetic_algorithm(instance):
+    print(f"{instance.name}, n={instance.get_n()}, opt_fit={instance.opt_fit}")
+    print(f"{'gen':<5} {'time':<10} {'elite':<15} {'error':<6}")
+
     opt_fit = instance.opt_fit
     n = instance.get_n()
     nodes = instance.get_nodes()
@@ -228,6 +231,7 @@ def genetic_algorithm(instance):
             error = None
 
         gen_time = perf_counter() - gen_start_time
+        print(f"{gen:>5} {gen_time:<10.3f} {elite_fit:<15.3f} {error:<6.3f}")
 
         if (
             stagnant_gens >= convergence_gen
