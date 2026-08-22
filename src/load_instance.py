@@ -28,7 +28,7 @@ def get_opt_fits(file):
 
 class Instance:
     def __init__(self, name):
-        self.ROOT_DIR = Path(__file__).resolve().parents[2]
+        self.ROOT_DIR = Path(__file__).resolve().parents[1]
         self.OPT_FITS_FILE = self.ROOT_DIR / "data" / "tsplib95" / "opt_fits.txt"
 
         self.name = name

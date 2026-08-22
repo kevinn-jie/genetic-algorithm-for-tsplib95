@@ -167,7 +167,7 @@ def two_opt(n, tour, dist_matrix):
     return tour
 
 
-def run_ga(instance):
+def genetic_algorithm(instance):
     opt_fit = instance.opt_fit
     n = instance.get_n()
     nodes = instance.get_nodes()
