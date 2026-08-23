@@ -16,7 +16,7 @@ ox_rate = 0.85
 sm_rate = 0.03
 min_change = 1e-3
 convergence_gen = 50
-two_opt_pt = 10
+two_opt_pt = 100
 
 
 @numba.njit(nogil=NO_GIL, cache=CAN_CACHE)
@@ -168,7 +168,18 @@ def two_opt(n, tour, dist_matrix):
 
 
 def genetic_algorithm(instance):
-    print(f"{instance.name}, n={instance.get_n()}, opt_fit={instance.opt_fit}")
+    print(f"Instance: {instance.name}")
+    print(f"  Number of nodes (n): {instance.get_n()}")
+    print(f"  Optimal fitness: {instance.opt_fit}")
+    print(f"  Population size: {pop_size}")
+    print(f"  Max generations: {max_gens}")
+    print(f"  Selection size: {selection_size}")
+    print(f"  Order cross over rate: {ox_rate}")
+    print(f"  Swap mutation rate: {sm_rate}")
+    print(f"  Minimum change: {min_change}")
+    print(f"  Max stagnant generations: {convergence_gen}")
+    print(f"  Two-opt percentile: {two_opt_pt}")
+    print()
     print(f"{'gen':<5} {'time':<10} {'elite':<15} {'error':<6}")
 
     opt_fit = instance.opt_fit

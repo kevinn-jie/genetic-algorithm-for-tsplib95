@@ -32,15 +32,19 @@ class Instance:
     def __init__(self, name):
         self.ROOT_DIR = Path(__file__).resolve().parents[1]
         self.OPT_FITS_FILE = self.ROOT_DIR / "data" / "tsplib95" / "opt_fits.txt"
-
         self.name = name
         self.file = self.ROOT_DIR / "data" / "tsplib95" / "instances" / f"{name}.tsp"
+
+        print(f"Loading file \"{self.file}\", instance \"{self.name}\"")
+
         self.instance = tsplib95.load(self.file)
         self.type = self.instance.edge_weight_type
         nodes = self.instance.node_coords.values()
         self.nodes = np.array(list(nodes))
         self.opt_fit = get_opt_fits(self.OPT_FITS_FILE).get(self.name)
         self.n = self.nodes.shape[0]
+
+        print(f"  Loaded file \"{self.file}\", instance \"{self.name}\"")
 
     def get_nodes(self):
         return self.nodes
