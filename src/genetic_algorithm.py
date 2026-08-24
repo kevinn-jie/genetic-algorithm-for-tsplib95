@@ -29,6 +29,7 @@ def rand_tour(n):
 @numba.njit(parallel=CAN_PARALLEL, nogil=NO_GIL, cache=CAN_CACHE)
 def init_pop(pop_size, n):
     pop = np.empty((pop_size, n), dtype=np.int64)
+
     for i in numba.prange(pop_size):
         pop[i] = rand_tour(n)
     return pop
@@ -37,6 +38,7 @@ def init_pop(pop_size, n):
 @numba.njit(nogil=NO_GIL, cache=CAN_CACHE)
 def calc_fit(n, tour, dist_matrix):
     fit = 0.0
+
     for i in range(n - 1):
         fit += dist_matrix[tour[i], tour[i + 1]]
     fit += dist_matrix[tour[-1], tour[0]]
@@ -46,6 +48,7 @@ def calc_fit(n, tour, dist_matrix):
 @numba.njit(parallel=CAN_PARALLEL, nogil=NO_GIL, cache=CAN_CACHE)
 def calc_pop_fits(pop_size, n, pop, dist_matrix):
     fits = np.empty(pop_size, dtype=np.float64)
+
     for i in numba.prange(pop_size):
         fits[i] = calc_fit(n, pop[i], dist_matrix)
     return fits
@@ -55,8 +58,10 @@ def calc_pop_fits(pop_size, n, pop, dist_matrix):
 def selection(fits, selection_size):
     elite_index = np.random.randint(len(fits))
     elite_fit = fits[elite_index]
+
     for i in range(1, selection_size):
         tour_index = np.random.randint(len(fits))
+
         if fits[tour_index] < elite_fit:
             elite_fit = fits[tour_index]
             elite_index = tour_index
@@ -77,9 +82,9 @@ def order_crossover(ox_rate, parent_1, parent_2, n):
 
         child = np.full(n, -1, dtype=np.int64)
         child[lower:upper] = parent_1[lower:upper]
-
         fill = []
         subset = set(parent_1[lower:upper])
+
         for i in parent_2:
             if i not in subset:
                 fill.append(i)
@@ -122,6 +127,7 @@ def get_elite(fits, pop):
 @numba.njit(parallel=CAN_PARALLEL, nogil=NO_GIL, cache=CAN_CACHE)
 def evolve_pop(pop_size, fits, selection_size, pop, ox_rate, sm_rate, n):
     new_pop = np.empty((pop_size - 1, n), dtype=np.int64)
+
     for i in numba.prange(1, pop_size):
         tour_1 = selection(fits, selection_size)
         tour_2 = selection(fits, selection_size)
@@ -226,6 +232,7 @@ def genetic_algorithm(instance):
 
         pop, fits = elite_pop, elite_fits
         candidate_elite_tour, candidate_elite_fit = get_elite(fits, pop)
+        
         if candidate_elite_fit < elite_fit - min_change:
             elite_tour = candidate_elite_tour.copy()
             elite_fit = candidate_elite_fit
