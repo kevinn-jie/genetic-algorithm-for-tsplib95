@@ -7,10 +7,10 @@ from load_optimality_file import load_optimality_file
 class Instance:
     def __init__(self, name):
         self.ROOT = Path(__file__).resolve().parents[1]
-        self.OPTIMALITY_FILE = self.ROOT / "data" / "tsplib95" / "bestSolutions.txt"
+        self.OPTIMALITY_FILE = self.ROOT / "data" / "bestSolutions.txt"
         self.name = name
         self.optimality = load_optimality_file(self.OPTIMALITY_FILE).get(self.name)
-        self.instance_file = self.ROOT / "data" / "tsplib95" / f"{name}.tsp"
+        self.instance_file = self.ROOT / "data" / f"{name}.tsp"
 
         print(f"{self.name}")
         print(f"  file: \"{self.instance_file}\"")
