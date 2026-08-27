@@ -1,8 +1,10 @@
 # Genetic Algorithm for TSPLIB95
 
+Last updated: 8/27/2026
+
 ## Description
 
-This repository is dedicated to my 2025-2027 IB Extended Essay research. Subsequently, ths project also acted as a practice project; this is not made to be a usable tool. This project is a Python, numba-accelerated genetic algorithm implementation for 2D Euclidean TSPLIB95 instances.
+This repository was dedicated to my 2025-2027 IB Extended Essay research. Subsequently, this project also acted as a practice project; this was not made to be a usable tool. This project is a Python, numba-accelerated genetic algorithm implementation for 2D Euclidean TSPLIB95 instances.
 
 ### Genetic Algorithm Implementation
 
@@ -50,11 +52,11 @@ This repository is dedicated to my 2025-2027 IB Extended Essay research. Subsequ
     pip install -r requirements.txt
     ```
 
-3. TSPLIB95 data is already in `data/`, but can be found at `tree/master/TSPLIB95/tsp` of `TSPLib.Net`: [https://github.com/pdrozdowski/TSPLib.Net/tree/master/TSPLIB95/tsp](https://github.com/pdrozdowski/TSPLib.Net/tree/master/TSPLIB95/tsp).
+3. TSPLIB95 data in `data/`, but can be found at `pdrozdowski/TSPLib.Net` repository: [https://github.com/pdrozdowski/TSPLib.Net/tree/master/TSPLIB95/tsp](https://github.com/pdrozdowski/TSPLib.Net/tree/master/TSPLIB95/tsp).
 
 ## Usage
 
-1. In the case TSP data is stored anywhere other than `data/`, confirm `self.OPTIMALITY_FILE` and `self.instance_FILE` paths in `load_instance.py`
+1. If TSP data not in `data/`, confirm `self.OPTIMALITY_FILE` and `self.instance_FILE` paths in `load_instance.py`
 
     ```python
     ...
@@ -70,7 +72,7 @@ This repository is dedicated to my 2025-2027 IB Extended Essay research. Subsequ
     ...
     ```
 
-2. Change genetic algorithm hyperparameters in `config.yaml`
+2. Adjust genetic algorithm hyperparameters in `config.yaml`
 
     ```yaml
     genetic_algorithm_parameters: 
@@ -84,17 +86,17 @@ This repository is dedicated to my 2025-2027 IB Extended Essay research. Subsequ
       two_opt_percentile: 100
     ```
 
-3. Change `main.py` to load and run the instance of your choice using `genetic_algorithm.py` and `load_instance.py`
+3. Adjust `main.py` using `genetic_algorithm.py` and `load_instance.py`
 
     ```python
     from genetic_algorithm import run_genetic_algorithm
     from load_instance import Instance
 
     if __name__ == "__main__":
-        instance = Instance("fl417") # change to an instance of your choice
-        run_genetic_algorithm(instance) # run genetic algorithm on the loaded instance
+        instance = Instance("fl417") # change to instance of choice
+        run_genetic_algorithm(instance) # run genetic algorithm on instance
     ```
 
 ## Project Status
 
-The project is finalized. Data has been collected. This repository will no longer recieve future updates other than style and documentation changes.
+The project is finalized; data has been collected. This repository will no longer receive future updates.
