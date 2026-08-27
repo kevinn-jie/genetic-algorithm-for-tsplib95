@@ -2,3 +2,4 @@ tsplib95>=0.7.1
 numpy>=2.5.2
 scipy>=1.18.1
 numba>=0.67.0
+yaml>=6.0.3

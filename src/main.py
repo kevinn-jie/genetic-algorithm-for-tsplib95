@@ -1,6 +1,6 @@
-from genetic_algorithm import genetic_algorithm
+from genetic_algorithm import run_genetic_algorithm
 from load_instance import Instance
 
 if __name__ == "__main__":
-	instance = Instance("berlin52")
-	genetic_algorithm(instance)
+	instance = Instance("fl417")
+	run_genetic_algorithm(instance)

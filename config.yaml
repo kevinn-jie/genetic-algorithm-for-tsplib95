@@ -1,0 +1,9 @@
+genetic_algorithm_parameters: 
+  population_size: 200
+  max_generations: 1000
+  selection_size: 7
+  order_crossover_rate: 0.85
+  swap_mutation_rate: 0.03
+  min_change: 0.001
+  convergence_generation: 50
+  two_opt_percentile: 100
