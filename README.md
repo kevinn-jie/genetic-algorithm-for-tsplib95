@@ -4,7 +4,9 @@ Last updated: 8/27/2026
 
 ## Description
 
-This repository was dedicated to my 2025-2027 IB Extended Essay research. Subsequently, this project also acted as a practice project; this was not made to be a usable tool. This project is a Python, numba-accelerated genetic algorithm implementation for 2D Euclidean TSPLIB95 instances.
+* Dedicated to my 2025-2027 IB Extended Essay research
+* A practice project; not a usable tool
+* Python, numba-accelerated genetic algorithm implementation for 2D Euclidean TSPLIB95 instances
 
 ### Genetic Algorithm Implementation
 
