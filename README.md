@@ -2,6 +2,8 @@
 
 Last updated: 8/27/2026
 
+<br>
+
 ## Description
 
 * Dedicated to my 2025-2027 IB Extended Essay research
@@ -28,6 +30,8 @@ Last updated: 8/27/2026
 * Convergence generation
 * Two-opt percentile
 
+<br>
+
 ## Stack
 
 ### Built With
@@ -38,6 +42,8 @@ Last updated: 8/27/2026
     * SciPy (1.18.1)
     * Numba (0.67.0)
     * PyYAML (6.0.3)
+
+<br>
 
 ## Installation
 
@@ -55,6 +61,8 @@ Last updated: 8/27/2026
     ```
 
 3. TSPLIB95 data in `data/`, but can be found at `pdrozdowski/TSPLib.Net` repository: [https://github.com/pdrozdowski/TSPLib.Net/tree/master/TSPLIB95/tsp](https://github.com/pdrozdowski/TSPLib.Net/tree/master/TSPLIB95/tsp).
+
+<br>
 
 ## Usage
 
@@ -98,6 +106,8 @@ Last updated: 8/27/2026
         instance = Instance("fl417") # change to instance of choice
         run_genetic_algorithm(instance) # run genetic algorithm on instance
     ```
+
+<br>
 
 ## Project Status
 
